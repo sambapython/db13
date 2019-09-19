@@ -16,12 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.http import HttpResponse
-def view_gateways(request):
-	#return "hello"
-	return HttpResponse("hello")
-
+from info.views import view_gateways,view_routers, view_hosts
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('gateways/',view_gateways)
+    path('gateways/',view_gateways), # this view_gateways call by sever by passing request object as an argument.
+    path("routers/", view_routers),
+    path("hosts/",view_hosts)
 ]
