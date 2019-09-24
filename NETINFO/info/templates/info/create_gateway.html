@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GATE WAY CREATION</title>
+</head>
+<body>
+	<h1>{{ message }}</h1>
+	<h2>Creating gateway</h2>
+	<form method="post">
+		{% csrf_token %}
+		<!-- NAME:<input type="text" name="name" value="Gateway"><br>
+		IP:<input type="text" name="ip" value="192.168.247.1"><br>
+		MASK:<input type="text" name="mask" value="192.168.247.1"><br>
+		route:<input type="text" name="route" value="192.168.247.1"><br>
+		INTERFACE:<input type="text" name="interface" value="192.168.247.1"> -->
+		{{ form.as_p }}
+		<input type="submit" name="" value="CREATE GATEWAY">
+
+	</form>
+</body>
+</html>

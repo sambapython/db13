@@ -1,4 +1,4 @@
-"""NETINFO URL Configuration
+"""ERP URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
@@ -15,14 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.http import HttpResponse
-from info.views import view_gateways,view_routers, view_hosts
-from info.gateway_views import create_gateway_view
+from pur.views import pur_view_index
+from sales.views import sales_view_index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('gateways/',view_gateways), # this view_gateways call by sever by passing request object as an argument.
-    path("routers/", view_routers),
-    path("hosts/",view_hosts),
-    path("create_gateway",create_gateway_view)
+    path("pur/index",pur_view_index),
+    path("sales/index",sales_view_index),
 ]

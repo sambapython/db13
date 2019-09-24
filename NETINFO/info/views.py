@@ -3,7 +3,7 @@ from django.http import HttpResponse
 
 # Create your views here.
 def view_gateways(request):
-	return render(request,"gateways.html")
+	return render(request,"info/gateways.html")
 def view_routers(request):
 	return HttpResponse("name: Admin router,ip:192.0.0.1")
 
