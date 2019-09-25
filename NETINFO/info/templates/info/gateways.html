@@ -5,6 +5,36 @@
 </head>
 <body>
 	<a href="/create_gateway">CREATE GATEWAY</a>
+	<table border=2>
+		<thead>
+			<tr>
+			<td>NAME</td>
+			<td>IP</td>
+			<td>MASK</td>
+			<td>ROUTE</td>
+			<td>INTERFACE</td>
+			<td>OPERATIONS</td>
+		</tr>
+		</thead>
+		<tbody>
+			{% for row in data %}
+			<tr>
+				<td>{{row.name}}</td>
+				<td>{{row.ip}}</td>
+				<td>{{row.mask}}</td>
+				<td>{{row.route}}</td>
+				<td>{{ row.interface_name}}</td>
+				<td>
+					<a href="/update_gateway/{{row.id}}">UPDATE</a>
+					<a href="/delete_gateway/{{row.id}}">DELETE</a>
+				</td>
+			</tr>
+	
+			{% endfor %}
+			
+		</tbody>
+	
+	</table>
 
 </body>
 </html>

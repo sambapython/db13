@@ -14,15 +14,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,re_path
 from django.http import HttpResponse
-from info.views import view_gateways,view_routers, view_hosts
-from info.gateway_views import create_gateway_view
+from info.views import view_routers, view_hosts
+from info.gateway_views import create_gateway_view, view_gateways,\
+update_gateway_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('gateways/',view_gateways), # this view_gateways call by sever by passing request object as an argument.
     path("routers/", view_routers),
     path("hosts/",view_hosts),
-    path("create_gateway",create_gateway_view)
+    path("create_gateway",create_gateway_view),
+    re_path("update_gateway/(?P<pk>[0-9]+)", update_gateway_view) #update_gateway_view(req_obj,pk=3)
 ]
