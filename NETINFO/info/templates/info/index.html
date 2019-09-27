@@ -1,3 +1,35 @@
-<html>
-<h1>THis is HOSTS PAGE</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>
+  	{% block title%}
+  Network information
+  {% endblock %}
+
+</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body style="height:1500px">
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="">NETINFO</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="/gateways">GATEWAYS</a></li>
+    </ul>
+  </div>
+</nav>
+  
+<div class="container" style="margin-top:50px">
+ {% block content %}
+ 	<h1>WRITE SOMETHING</h1>
+ {% endblock %}
+</div>
+</body>
 </html>

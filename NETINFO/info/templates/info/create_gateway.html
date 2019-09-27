@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>GATE WAY CREATION</title>
-</head>
-<body>
+{% extends "info/index.html"%}
+{% block title%}
+ CREATE GATEWAY
+{% endblock%}
+{% block content %}
 	<h1>{{ message }}</h1>
 	<h2>Creating gateway</h2>
 	<form method="post">
@@ -17,5 +16,4 @@
 		<input type="submit" name="" value="SUBMIT">
 
 	</form>
-</body>
-</html>
+{% endblock %}
