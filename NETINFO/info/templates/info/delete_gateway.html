@@ -1,14 +1,12 @@
 {% extends "info/index.html"%}
 {% block title%}
- CREATE GATEWAY
+ DELETE GATEWAY
 {% endblock%}
 {% block content %}
 	<h1>{{ message }}</h1>
-	<h2>Creating gateway</h2>
+	<h2>DELETING gateway</h2>
 	<form method="post">
 		{% csrf_token %}
-		{{ form.as_p }}
-		<input type="submit" name="" value="SUBMIT">
-
+		<input type="submit" name="" value="CONFIRMING DELETE">
 	</form>
 {% endblock %}

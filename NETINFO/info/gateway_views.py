@@ -3,6 +3,20 @@ from django.shortcuts import render, redirect
 from info.models import Gateway
 from info.forms import GatewayForm
 # Create your views here.
+def delete_gateway_view(request, pk):
+	msg=""
+	gateways = Gateway.objects.filter(pk=pk)
+	if gateways:
+		gateway=gateways[0]
+		if request.method=="POST":
+			gateway.delete()
+			return redirect("/gateways")
+	else:
+		
+		msg="gateways are not found"
+	return render(request,"info/delete_gateway.html",
+		{"message":msg})
+
 def update_gateway_view(request,pk):
 	msg=""
 	gateways = Gateway.objects.filter(pk=pk)
