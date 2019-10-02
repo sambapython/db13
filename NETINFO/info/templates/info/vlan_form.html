@@ -1,0 +1,14 @@
+{% extends "info/index.html"%}
+{% block title%}
+ CREATE VLAN
+{% endblock%}
+{% block content %}
+	<h1>{{ message }}</h1>
+	<h2>Creating vlan</h2>
+	<form method="post">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<input type="submit" name="" value="SUBMIT">
+
+	</form>
+{% endblock %}

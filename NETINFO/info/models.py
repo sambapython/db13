@@ -21,6 +21,10 @@ class Gateway(CommonFieldsModel):
 	route = models.GenericIPAddressField()
 	interface_name=models.CharField(max_length=300)
 
+	def __str__(self):
+		return self.name
+
+
 class Vlan(models.Model):
 	number = models.IntegerField()
 	gateway = models.ForeignKey(Gateway, on_delete = models.PROTECT) 

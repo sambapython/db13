@@ -19,6 +19,8 @@ from django.http import HttpResponse
 from info.views import view_routers, view_hosts, index_view
 from info.gateway_views import create_gateway_view, view_gateways,\
 update_gateway_view, delete_gateway_view
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from info.models import Vlan
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,4 +31,18 @@ urlpatterns = [
     path("create_gateway",create_gateway_view),
     re_path("update_gateway/(?P<pk>[0-9]+)", update_gateway_view), #update_gateway_view(req_obj,pk=3)
     re_path("delete_gateway/(?P<pk>[0-9]+)", delete_gateway_view),
+    path("vlans/",ListView.as_view(
+        model=Vlan,   #appname/modelname.lower()+"_list.html"
+        #template_name="info/valns.html"
+        )),
+    path("create_vlan/",CreateView.as_view(
+        model = Vlan,
+        fields= "__all__", #appname/models.lower()+"_form.html"
+        success_url="/vlans"
+        )),
+    re_path("update_vlan/(?P<pk>[0-9]+)",UpdateView.as_view(
+        model = Vlan,
+        fields = "__all__",
+        success_url = "/vlans"
+        ))
 ]

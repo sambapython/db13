@@ -1,0 +1,30 @@
+{% extends "info/index.html"%}
+{% block title%}
+ VLANS
+{% endblock%}
+{% block content %}
+<a href="/create_vlan">CREATE VLAN</a>
+	<table border=2>
+		<thead>
+			<tr>
+			<td>NUMBER</td>
+			<td>GATEWAY</td>
+		</tr>
+		</thead>
+		<tbody>
+			{% for row in object_list %}
+			<tr>
+				<td>{{row.number}}</td>
+				<td>{{ row.gateway}}</td>
+				<td>
+					<a href="/update_vlan/{{row.id}}">UPDATE</a>
+					<a href="/delete_vlan/{{row.id}}">DELETE</a>
+				</td>
+			</tr>
+	
+			{% endfor %}
+			
+		</tbody>
+	
+	</table>
+{% endblock %}
