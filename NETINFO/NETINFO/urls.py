@@ -21,6 +21,7 @@ from info.gateway_views import create_gateway_view, view_gateways,\
 update_gateway_view, delete_gateway_view
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from info.models import Vlan
+from info.user_views import signup,signin,signout
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -44,5 +45,12 @@ urlpatterns = [
         model = Vlan,
         fields = "__all__",
         success_url = "/vlans"
-        ))
+        )),
+    re_path("delete_vlan/(?P<pk>[0-9]+)",DeleteView.as_view(
+        model = Vlan,
+        success_url = "/vlans"
+        )),
+    path("signup/",signup),
+    path("signin/",signin),
+    path("signout/",signout),
 ]

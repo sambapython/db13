@@ -21,9 +21,17 @@
       <a class="navbar-brand" href="">NETINFO</a>
     </div>
     <ul class="nav navbar-nav">
+      {% if request.user.is_authenticated %}
       <li><a href="/gateways">GATEWAYS</a></li>
       <li><a href="/vlans">VLANS</a></li>
       <li><a href="/switches">SWITCHES</a></li>
+      <li><a href="/">WELCOME {{request.user.username}}</a></li>
+      <li><a href="/signout">SIGN OUT</a></li>
+      {% else %}
+      <li><a href="/signup">SIGN UP</a></li>
+      <li><a href="/signin">SIGN IN</a></li>
+      {% endif %}
+      
     </ul>
   </div>
 </nav>

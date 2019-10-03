@@ -1,0 +1,13 @@
+{% extends "info/index.html"%}
+{% block title%}
+ DELETE VLAN
+{% endblock%}
+{% block content %}
+	<h1>{{ message }}</h1>
+	<h2>deleting vlan</h2>
+	<form method="post">
+		{% csrf_token %}
+		<input type="submit" name="" value="Confirm Delete">
+
+	</form>
+{% endblock %}

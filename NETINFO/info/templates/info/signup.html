@@ -1,0 +1,15 @@
+{% extends "info/index.html"%}
+{% block title%}
+ SIGNUP
+{% endblock%}
+{% block content %}
+	<h1>{{ message }}</h1>
+	<h2>SIGNING UP</h2>
+	<form method="post">
+		{% csrf_token %}
+		Username:<input type="text" name="username">
+		Password:<input type="password" name="password">
+		<input type="submit" name="" value="SIGNUP">
+
+	</form>
+{% endblock %}
