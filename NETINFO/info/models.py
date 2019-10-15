@@ -5,6 +5,11 @@ create table gateway(name varchar(250))
 """
 
 # Create your models here.
+class ReqTrack(models.Model):
+	create_date=models.DateTimeField(auto_now_add=True)
+	url=models.CharField(max_length=250)
+	ip=models.CharField(max_length=250)
+	resp_status_code=models.CharField(max_length=250,blank=True,null=True)
 class CommonFieldsModel(models.Model):
 	"""
 	This is an abstract model. when you migrate for this model no table created in the database.
