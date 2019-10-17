@@ -2,7 +2,10 @@ from django.db.utils import IntegrityError
 from django.shortcuts import render, redirect
 from info.models import Gateway
 from info.forms import GatewayForm
+from django.contrib.auth.views import login_required
+
 # Create your views here.
+@login_required
 def delete_gateway_view(request, pk):
 	msg=""
 	gateways = Gateway.objects.filter(pk=pk)
@@ -16,7 +19,7 @@ def delete_gateway_view(request, pk):
 		msg="gateways are not found"
 	return render(request,"info/delete_gateway.html",
 		{"message":msg})
-
+@login_required
 def update_gateway_view(request,pk):
 	msg=""
 	gateways = Gateway.objects.filter(pk=pk)
@@ -39,10 +42,11 @@ def update_gateway_view(request,pk):
 		msg="gateways are not found"
 	return render(request,"info/create_gateway.html",
 		{"form":form,"message":msg})
-
+@login_required
 def view_gateways(request):
 	gateways = Gateway.objects.all()
 	return render(request,"info/gateways.html",{"data":gateways})
+@login_required
 def create_gateway_view(request):
 	msg=""
 	if request.method == "POST":

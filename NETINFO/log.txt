@@ -1,0 +1,12 @@
+2019-10-17 03:00:04,272->INFO->info this is index view->info.views
+2019-10-17 03:00:04,273->DEBUG->debug this is index view->info.views
+2019-10-17 03:00:04,273->WARNING->warning is index view->info.views
+2019-10-17 03:00:04,273->ERROR->error this is index view->info.views
+2019-10-17 03:00:25,118->INFO->info this is index view->info.views
+2019-10-17 03:00:25,118->DEBUG->debug this is index view->info.views
+2019-10-17 03:00:25,118->WARNING->warning is index view->info.views
+2019-10-17 03:00:25,118->ERROR->error this is index view->info.views
+2019-10-17 03:15:45,813->INFO->info this is index view->info.views
+2019-10-17 03:15:45,819->DEBUG->debug this is index view->info.views
+2019-10-17 03:15:45,820->WARNING->warning is index view->info.views
+2019-10-17 03:15:45,820->ERROR->error this is index view->info.views

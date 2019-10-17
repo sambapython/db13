@@ -131,3 +131,34 @@ REST_FRAMEWORK = {
 
         )
 }
+LOGIN_URL="/signin/"
+LOGGING ={
+            'version': 1,
+            'disable_existing_loggers':False,
+            'formatters':{
+                'simple':{
+                    'format':"%(asctime)s->%(levelname)s->%(message)s->%(name)s"
+                },
+
+
+            },
+            'handlers': {
+                'console': {
+                    'class': 'logging.StreamHandler',
+                    #'class': 'logging.FileHandler',
+                    #'filename':'log.txt',
+                    'formatter': "simple",
+                    },
+                'file': {
+                    'class': 'logging.FileHandler',
+                    'filename':'log.txt',
+                    'formatter': "simple",
+                    },
+                },
+            'loggers': {
+                'info': {
+                'handlers': ['file'],
+
+                'level': "DEBUG"},
+                },
+}

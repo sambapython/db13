@@ -27,6 +27,9 @@ def signin(request):
 		if user:
 			login(request,user)
 			msg="signin successfully"
+			extra_url = request.GET.get("next")
+			if extra_url:
+				return redirect(extra_url)
 		else:
 			msg="wrong username and password"
 	return render(request,"info/signin.html",{"message":msg})
