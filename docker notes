@@ -1,0 +1,47 @@
+installation in ubuntu:
+sudo apt-get remove docker docker-engine docker.io containerd runc
+sudo apt-get update
+sudo apt-get install docker.io
+
+For windows:
+ Download Toolbox from https://github.com/docker/toolbox/releases
+ and install it.
+
+ #Reffer this for more:
+ https://www.youtube.com/watch?v=sRIxHHZFwBA
+
+#To pull Ubuntu os Image 
+Docker pull python:3
+
+# to run the container
+docker run -itd -p 92:8000 python:3 
+
+# to connect to the python:3 container
+docker exec -it <container id> bash
+
+will container id using "docker ps"
+
+#copy the code from your VM to container
+
+# run this command in your VM
+sudo docker cp NETINFO/ 0ff4e1290bb2:/
+
+# RUN the below commands in the container
+# we got the code, we need to install dependent packages.
+ cd NETINFO
+ pip install -r requirements.txt
+ python manage.py makemigrations
+ python manage.py migrate
+
+ python manage.py runserver 0.0.0.0:8000
+
+# comit the changes done by in the container to the new docker image.
+sudo docker commit 9677d83e89cb netinfo
+
+# to push your image to hib.docker.com need to tag and login to hub and push the image
+#tag
+sudo docker tag netinfo <username of hub.docker.com>:netinfo
+
+sudo docker login
+
+docker push imagename:tag

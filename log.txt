@@ -1,0 +1,20 @@
+2019-10-16 08:20:54,431=>INFO==>program started
+2019-10-16 08:20:56,491=>INFO==>a vlaue entered
+2019-10-16 08:20:57,037=>INFO==>b value entered.
+2019-10-16 08:20:57,037=>DEBUG==>before converting: a=12,b=6
+2019-10-16 08:20:57,037=>INFO==>a value converted.
+2019-10-16 08:20:57,037=>INFO==>b value converted
+2019-10-16 08:20:57,037=>DEBUG==>after converting: a=12.0,b=6.0
+2019-10-16 08:20:57,037=>DEBUG==>result=2.0
+2019-10-16 08:20:57,037=>INFO==>program ended
+2019-10-16 08:21:55,801=>INFO==>program started
+2019-10-16 08:21:56,659=>INFO==>a vlaue entered
+2019-10-16 08:21:57,338=>INFO==>b value entered.
+2019-10-16 08:21:57,338=>DEBUG==>before converting: a=12,b=0
+2019-10-16 08:21:57,339=>INFO==>a value converted.
+2019-10-16 08:21:57,339=>INFO==>b value converted
+2019-10-16 08:21:57,339=>DEBUG==>after converting: a=12.0,b=0.0
+2019-10-16 08:21:57,339=>ERROR==>ERROR: Not expecting zero for b
+2019-10-16 08:21:57,339=>INFO==>program ended
+2019-10-16 08:22:25,787=>ERROR==>ERROR: Not expecting zero for b
+2019-10-16 08:22:41,994=>ERROR==>ERROR: Not expecting zero for b

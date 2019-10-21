@@ -1,0 +1,42 @@
+
+check settings.py allowed_host=["*"]
+DEBUG=FALSE
+install dependencies:
+	requirements.txt: this should contains the modules with version
+	pip freeze>requirements.txt
+	to install dependencies: pip install -r requirements.txt
+	python manage.py makemigrations
+	python manage.py migrate
+	python manage.py runserver
+	execute above four command using setup.py
+form the setup.py
+
+remover python manage.py runserver from setup.py, because we are going to run our appp
+to install gunicorn: pip install gunicorn
+with gunicorn with multiple workers
+ before goiong to add in setup.py lets test manually!!
+ run the below command in your project directory.
+ gunicorn --bind 0.0.0.0:9000 bookyourticket.wsgi --workers=10
+
+gunicorn is running.
+lets access this with nginx.
+install nginx: sudo apt-get install nginx
+check service is running or not: service nginx status
+we need to configure nginx to acess the above gunicorn server.
+access nginx only from browser: http://localhost
+it should show welcome nginx in the browser
+
+vi /etc/nginx/sites-available/default
+remove total data and add the below content
+server{
+    listen 80;
+    server_name localhost;
+    location /{
+        return 301 "http://localhost:9000/bookticket";
+}
+
+}
+
+sudo systemctl reload nginx
+sudo systemctl restart nginx
+sudo systemctl status nginx
