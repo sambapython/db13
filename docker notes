@@ -40,8 +40,39 @@ sudo docker commit 9677d83e89cb netinfo
 
 # to push your image to hib.docker.com need to tag and login to hub and push the image
 #tag
-sudo docker tag netinfo <username of hub.docker.com>:netinfo
+sudo docker tag <image_id> sambaodoo/netinfo:latest
 
 sudo docker login
 
-docker push imagename:tag
+sudo docker push sambaodoo/netinfo:latest
+
+
+
+Executing above commands for our project chages incured time. That is the reason need to automate the command execution. For this we have Dockerfiel
+
+Add "Dockerfile" in your project copy the below content.
+FROM python:3.6
+RUN mkdir code
+ADD . code
+RUN chmod -R 777 code/entry.sh
+ENTRYPOINT ["code/entry.sh"]
+
+
+Add entry.sh in your project folder add the below content
+#!/bin/bash
+pip install -r code/requirements.txt
+python code/manage.py makemigrations
+python code/manage.py migrate
+python code/manage.py runserver 0.0.0.0:8000
+
+Goto your project folder run the below command to build an image
+sudo docker build -t sambaodoo/netinfo1 .
+
+sudo docker push sambaodoo/netinfo1
+
+BUILD YOUR OWN DOCKER REGISTRY
+sudo docker run -itd -p 5000:5000 registry
+
+To push into your local registry need to tag it properly
+sudo docker tag netinfo localhost:5000/netinfo
+sudo docker push localhost:5000/netinfo
